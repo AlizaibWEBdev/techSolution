@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<style>
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: rgb(131, 131, 131);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #0048ff;
+        border-radius: 30px;
+    }
+
+    .loader {
+
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        z-index: 111;
+        background-color: #a2d4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--normal);
+        flex-direction: column;
+        transition: 0.30s;
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-shadow: 3px -1px 0px #001aff;
+
+    }
+
+    .loader-circle {
+        width: 50px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 5px solid rgb(0, 0, 0);
+        height: 50px;
+        border-top-color: #2f00ff;
+        animation: rotate 1s linear infinite;
+    }
+
+
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+
+    <div class="loader">
+        <div class="text-loader">
+            Tech Solutions Institute
+        </div>
+        <br>
+        <div class="loader-circle"></div>
+    </div>
+    <header>
+        <div class="logo">
+            TSI
+        </div>
+        <div class="humburger" onclick="toggleNav()">
+            <span> &#8801;</span>
+        </div>
+        <div class="nav-wraper nav-closed" id="nav-wraper">
+            <nav>
+                <div class="close" onclick="toggleNav()">
+                    <span>&#10006;</span>
+                </div>
+                <ul>
+                    <li><a href="#home" onclick="toggleNav()">Home</a></li>
+                   
+                   
+                    <li><a href="#services" onclick="toggleNav()">Services</a></li>
+                    <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
+                </ul>
+
+
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="home">
+            <div class="left">
+                <div class="text">
+                    <p class="gradient-text">Hi!</p>
+                    <p class="normal">We at Tech Solutions Institute</p>
+                    <p class="normal">provides modern tech-related services i.e., Digital Marketing and Web Development solutions</p>
+                   <a href="#contact"> <button class="blue">Contact now</button></a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="profile"></div>
+            </div>
+
+        </div>
+
+
+    
+        <div id="servicess">
+            <h1>servicess</h1>
+            <div class="servicess">
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>Digital Marketing</h3>
+                </div>
+
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>SEO (search engine optimization)</h3>
+                </div>
+
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>email marketing</h3>
+                </div>
+
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>affiliate marketing</h3>
+                </div>
+
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>facebook ads </h3>
+                </div>
+
+              
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>content marketing </h3>
+                </div> 
+
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>basic graphic desgin </h3>
+                </div> 
+
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>web developement </h3>
+                </div> 
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>web designing </h3>
+                </div> 
+                <div class="services">
+                    <img src="coding.png" alt="">
+                    <h3>programmming </h3>
+                </div> 
+            </div>
+        </div>
+     
+
+        <div class="space">
+            <h1>contact</h1>
+
+            <div id="contact">  
+                
+                <div class="way">
+                    <span>Email</span>
+                    <a href="mailto:institutetechsolutions@gmail.com">institutetechsolutions@gmail.com</a>
+                </div>
+                <div class="way">
+                    <span>whatsapp</span>
+                    <p>+923463904471</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </main>
+
+    <footer>coyright &copy; 2024 created by TSI </footer>
+</body>
+<script>
+
+    let nav = document.getElementById("nav-wraper")
+    let projects = document.getElementById("projects")
+    function toggleNav() {
+        nav.classList.toggle("nav-closed");
+        if (!nav.classList.contains("nav-closed")) {
+            projects.style.display = "none";
+            document.body.style.overflowY = "hidden"
+        } else {
+            document.body.style.overflowY = "scroll"
+            projects.style.display = "flex"
+        }
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            document.getElementsByClassName("loader")[0].style.transform = "translateY(-100vh)"
+            setTimeout(() => {
+                document.getElementsByClassName("loader")[0].style.display = "none"
+            }, 1000);
+        }, 5000);
+    })
+    let scroll = 0;
+    window.addEventListener("scroll", (e) => {
+        let curunt = window.scrollY;
+        setTimeout(() => {
+            document.getElementsByTagName("header")[0].style.display = curunt > scroll ? "none" : "flex"
+            scroll = curunt;
+        }, 100);
+
+    })
+
+
+
+</script>
+
+</html>
